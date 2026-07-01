@@ -48,6 +48,9 @@ export const sqliteUsersTable = sqliteTable('users', {
   lastName: text('last_name').notNull(),
   email: text('email').notNull().unique(),
   password: text('password').notNull(),
+  avatar: text('avatar')
+    .$type<string | null>()
+    .$onUpdate(() => null),
   roleId: text('role_id')
     .notNull()
     .references(() => sqliteRolesTable.id),
