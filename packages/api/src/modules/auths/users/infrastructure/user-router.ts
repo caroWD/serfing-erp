@@ -1,0 +1,15 @@
+import { Router } from 'express'
+import { UserController } from './UserController.ts'
+
+const userController = new UserController()
+
+export const userRouter: Router = Router()
+
+userRouter.post('/', userController.add)
+userRouter.put('/', userController.edit)
+userRouter.patch('/password', userController.changePassword)
+userRouter.patch('/', userController.softRemove)
+userRouter.delete('/', userController.remove)
+userRouter.post('/login', userController.auth)
+userRouter.get('/', userController.findAll)
+userRouter.get('/:id', userController.findOne)
