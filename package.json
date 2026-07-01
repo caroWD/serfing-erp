@@ -1,17 +1,12 @@
 {
   "name": "serfing-erp",
   "version": "1.0.0",
-  "module": "index.ts",
-  "type": "module",
-  "private": true,
-  "scripts": {
-    "dev": "bun --filter \"**\" dev",
-    "commit": "git-cz",
-    "format": "prettier --write \"**/*.{ts,tsx}\""
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
   },
-  "workspaces": [
-    "packages/*"
-  ],
+  "module": "index.ts",
   "devDependencies": {
     "@commitlint/cli": "^21.2.0",
     "@commitlint/config-conventional": "^21.2.0",
@@ -31,9 +26,15 @@
   "peerDependencies": {
     "typescript": "^5"
   },
-  "config": {
-    "commitizen": {
-      "path": "@commitlint/cz-commitlint"
-    }
-  }
+  "private": true,
+  "scripts": {
+    "dev": "bun --filter \"**\" dev",
+    "commit": "git-cz",
+    "format": "prettier --write \"**/*.{ts,tsx}\"",
+    "api:drizzle": "bun --filter \"api\" drizzle:push && bun --filter \"api\" drizzle:initial"
+  },
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ]
 }
