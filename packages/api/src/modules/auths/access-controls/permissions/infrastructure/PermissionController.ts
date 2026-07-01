@@ -29,6 +29,8 @@ export class PermissionController {
       res
         .status(201)
         .json({ message: 'Permission added successfully!', state: true })
+
+      return
     } catch (error) {
       next(error)
     }
@@ -53,6 +55,8 @@ export class PermissionController {
       res
         .status(200)
         .json({ message: 'Permission edited successfully!', state: true })
+
+      return
     } catch (error) {
       next(error)
     }
@@ -71,6 +75,8 @@ export class PermissionController {
       res
         .status(200)
         .json({ message: 'Permission soft-removed successfully!', state: true })
+
+      return
     } catch (error) {
       next(error)
     }
@@ -89,6 +95,8 @@ export class PermissionController {
       res
         .status(200)
         .json({ message: 'Permission removed successfully!', state: true })
+
+      return
     } catch (error) {
       next(error)
     }
@@ -104,6 +112,8 @@ export class PermissionController {
         await serviceContainer.auth.accessControl.permission.findAll()
 
       res.status(200).json(permissions)
+
+      return
     } catch (error) {
       next(error)
     }
@@ -121,6 +131,8 @@ export class PermissionController {
         await serviceContainer.auth.accessControl.permission.findOne(id)
 
       res.status(200).json(permission)
+
+      return
     } catch (error) {
       next(error)
     }
